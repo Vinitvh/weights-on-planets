@@ -5,11 +5,12 @@ fn main() {
 
     let mut input = String::new();
     io::stdin().read_line(& mut input).unwrap();
-    let weight = input.trim().parse();
-    calculate_weights(weight);
-    println!("{}kg", input.trim()); 
+    let weight: f32 = input.trim().parse().unwrap();
+    let mars = calculate_weights(weight);
+    // Round off to two decimal places
+    println!("Your weight is {:.2}kg on Mars!", mars); 
 }
 
 fn calculate_weights(weight: f32) -> f32 {
-println!("{}kg", weight)
-}
+ (weight / 9.81) * 3.711
+}   
